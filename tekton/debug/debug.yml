@@ -1,0 +1,26 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: debug
+  labels:
+    app.kubernetes.io/version: "0.1"
+  annotations:
+    tekton.dev/pipelines.minVersion: "0.12.1"
+    tekton.dev/categories: Cli
+    tekton.dev/tags: cli
+    tekton.dev/platforms: "linux/amd64"
+spec:
+  description: >-
+    Simple Task to develop or debug the development of a Task or Pipeline
+  workspaces:
+    - name: source
+  steps:
+  - name: debug
+    image: quay.io/michard/developer_image:tekton-curl
+    script: |
+      #!/bin/sh
+      pwd
+      ls
+      cd $(workspaces.source.path)
+      pwd
+      ls

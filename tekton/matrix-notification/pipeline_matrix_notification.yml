@@ -1,0 +1,23 @@
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: pipeline-matrix
+spec:
+  params:
+    - name: message
+      type: string
+      description: "The message to send to the Matrix room"
+    - name: notification-secret
+      type: string
+      description: "Secret containing the Matrix credentials"
+      default: "matrix-secret"
+  tasks:
+    - name: notify-matrix-room
+      params:
+        - name: message
+          value: $(params.message)
+        - name: notification_secret
+          value: $(params.notification-secret)
+      taskRef:
+        kind: Task
+        name: notification-to-matrix

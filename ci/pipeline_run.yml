@@ -1,0 +1,33 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  generateName: tekton-base-image-run-
+spec:
+  pipelineRef:
+    name: tekton-base-image
+  serviceAccountName: pipeline
+  workspaces:
+  - name: shared-workspace
+    volumeClaimTemplate:
+      spec:
+        accessModes:
+          - ReadWriteOnce
+        resources:
+          requests:
+            storage: 30Mi
+        storageClassName: managed-nfs-storage
+        volumeMode: Filesystem
+  - name: registry-credentials
+    secret:
+      secretName: quay-creds
+  params:
+  - name: git-url
+    value: "https://github.com/smichard/tekton_base_image"
+  - name: git-revision
+    value: "main"
+  - name: target-image
+    value: "quay.io/michard/tekton_base_image"
+  - name: message
+    value: "Tekton base image: new image build and pushed to external registry - Build Tag:"
+  - name: notification-secret
+    value: "matrix-secret"

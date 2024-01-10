@@ -1,0 +1,39 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: generate-build-id
+  labels:
+    app.kubernetes.io/version: "0.1"
+  annotations:
+    tekton.dev/pipelines.minVersion: "0.12.1"
+    tekton.dev/categories: Build Tools
+    tekton.dev/tags: build-tool
+    tekton.dev/platforms: "linux/amd64"
+spec:
+  description: >-
+    Task to generate a build id
+  params:
+    - name: base-version
+      description: Base product version
+      type: string
+      default: "1.0"
+  results:
+    - name: timestamp
+      description: Current timestamp
+    - name: build-id
+      description: ID of the current build
+  steps:
+    - name: get-timestamp
+      image: quay.io/michard/developer_image:tekton-base
+      script: |
+        #!/bin/sh
+        ts=`date "+%Y%m%d-%H%M%S"`
+        echo "Current Timestamp: ${ts}"
+        echo ${ts} | tr -d "\n" | tee $(results.timestamp.path)
+    - name: get-buildid
+      image: quay.io/michard/developer_image:tekton-base
+      script: |
+        #!/bin/sh
+        ts=`cat $(results.timestamp.path)`
+        buildId=$(inputs.params.base-version)-${ts}
+        echo ${buildId} | tr -d "\n" | tee $(results.build-id.path)

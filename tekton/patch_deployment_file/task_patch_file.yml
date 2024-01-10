@@ -1,0 +1,49 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: patch-file
+  labels:
+    app.kubernetes.io/version: "0.1"
+  annotations:
+    tekton.dev/pipelines.minVersion: "0.12.1"
+    tekton.dev/categories: Deployment
+    tekton.dev/tags: cli
+    tekton.dev/platforms: "linux/amd64"
+spec:
+  description: >-
+    Task to patch a deployment file
+  params:
+  - name: build-id
+    type: string
+    description: "submit build id"
+  - name: image
+    type: string
+    description: "provide new image to patch the deployment"
+  - name: path
+    type: string
+    description: "provide path of the deployment file"
+  workspaces:
+    - name: source
+  steps:
+  - name: patch-file
+    image: quay.io/michard/developer_image:tekton-base
+    script: |
+      #!/bin/sh
+
+      # Define the new variables
+      NEW_BUILD_ID=$(params.build-id)
+      NEW_IMAGE=$(params.image)
+
+      # File to patch
+      FILE=$(workspaces.source.path)/$(params.path)
+
+      # Update line 9 with new build ID
+      sed -i "9s|ci.buildid:.*|ci.buildid: '$NEW_BUILD_ID'|" $FILE
+
+      # Update line 23 with new image
+      sed -i "23s|image:.*|image: $NEW_IMAGE|" $FILE
+
+      echo -e "File $FILE has been updated. \n Build ID: $NEW_BUILD_ID \n Image: $NEW_IMAGE \n"
+      echo -e "File content: \n"
+      cat $FILE
+    

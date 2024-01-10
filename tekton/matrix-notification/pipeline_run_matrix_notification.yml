@@ -1,0 +1,12 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  generateName: pipeline-matrix-run-
+spec:
+  pipelineRef:
+    name: pipeline-matrix
+  params:
+    - name: message
+      value: "custom message"
+    - name: notification-secret
+      value: "matrix-secret"
