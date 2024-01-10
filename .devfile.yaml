@@ -19,12 +19,12 @@ attributes:
       factory:
         params: url=https://github.com/smichard/tekton_base_image
 projects:
-  - name: developer-image
+  - name: tekton_base_image
     git:
       remotes:
         origin: https://github.com/smichard/tekton_base_image
 components:
-  - name: devspaces-image
+  - name: devspaces-container
     container:
       image: quay.io/michard/devspaces_base_image:0.1.1
       sourceMapping: /projects
