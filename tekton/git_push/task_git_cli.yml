@@ -53,7 +53,7 @@ spec:
       description: |
         The base image for the task.
       type: string
-      default: quay.io/michard/developer_image:tekton-git
+      default: quay.io/michard/tekton_base_image:0.1.2
 
     - name: GIT_USER_NAME
       type: string
