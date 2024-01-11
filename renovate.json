@@ -4,6 +4,6 @@
     "config:recommended"
   ],
   "tekton": {
-    "fileMatch": ["ci/.+\\.yml$"]
+    "fileMatch": ["ci/custom_tasks/.+\\.yml$"]
   }
 }
