@@ -49,12 +49,6 @@ spec:
         to use ssh-directory over basic-auth whenever possible and to bind a
         Secret to this Workspace over other volume types.
   params:
-    - name: BASE_IMAGE
-      description: |
-        The base image for the task.
-      type: string
-      default: quay.io/michard/tekton_base_image:0.1.2
-
     - name: GIT_USER_NAME
       type: string
       description: |
@@ -91,7 +85,7 @@ spec:
 
   steps:
     - name: git
-      image: $(params.BASE_IMAGE)
+      image: quay.io/michard/tekton_base_image:0.1.2
       workingDir: $(workspaces.source.path)
       env:
       - name: HOME
