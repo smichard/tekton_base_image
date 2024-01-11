@@ -6,6 +6,9 @@
   "tekton": {
     "fileMatch": ["ci/custom_tasks/.+\\.yml$"]
   },
+  "tekton": {
+    "fileMatch": ["tekton/.+\\.yml$"]
+  },
   "customManagers": [
     {
       "customType": "regex",
