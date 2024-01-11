@@ -2,7 +2,7 @@
 
 This repository hosts the Dockerfile for building a base image designed for Tekton tasks, along with a collection of custom Tekton tasks. The base image is built on alpine:3.19.0 and includes essential tools like curl, git, and openssh-client.
 
-[![Container Registry on Quay](https://img.shields.io/badge/Quay-Container_Registry-ee0000 "Container Registry on Quay")](https://quay.io/repository/michard/tekton_base_image)
+[![Container Registry on Quay](https://img.shields.io/badge/Quay-Container_Registry-46b9e5 "Container Registry on Quay")](https://quay.io/repository/michard/tekton_base_image)
 [![Start Dev Space](https://www.eclipse.org/che/contribute.svg)](https://devspaces.apps.ocp.michard.cc#https://github.com/smichard/tekton_base_image)
 
 ## Table of Contents
