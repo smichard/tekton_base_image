@@ -5,5 +5,16 @@
   ],
   "tekton": {
     "fileMatch": ["ci/custom_tasks/.+\\.yml$"]
-  }
+  },
+  "customManagers": [
+    {
+      "customType": "regex",
+      "fileMatch": [".devfile.yaml"],
+      "matchStrings": [
+        "image: quay\\.io/michard/devspaces_base_image:(?<currentValue>\\d+\\.\\d+\\.\\d+)"
+      ],
+      "depNameTemplate": "quay.io/michard/devspaces_base_image",
+      "datasourceTemplate": "docker"
+    }
+  ]
 }
