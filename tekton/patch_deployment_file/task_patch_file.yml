@@ -26,7 +26,7 @@ spec:
     - name: source
   steps:
   - name: patch-file
-    image: quay.io/michard/tekton_base_image:0.1.3
+    image: quay.io/michard/tekton_base_image:0.1.10
     script: |
       #!/bin/sh
 
