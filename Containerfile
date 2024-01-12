@@ -5,4 +5,3 @@ RUN apk update \
     && rm -rf /var/cache/apk/*
 
 CMD ["/bin/sh"]
-
