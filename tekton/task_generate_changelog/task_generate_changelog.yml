@@ -14,6 +14,9 @@ spec:
     Task to generate a build tag
   workspaces:
     - name: source
+  results:
+  - name: changelog-file-path
+    description: file path of the changelog file
   params:
   - name: changelog-file-name
     type: string
@@ -37,6 +40,9 @@ spec:
         REPO_DIR="/workspace/source"
         CHANGELOG_FILE="$REPO_DIR/$(params.changelog-file-name)"
         GITHUB_REPO_URL=$(params.repo-url) # Replace with your repository URL
+
+        # save changelog file path to results variable
+        echo ${CHANGELOG_FILE} | tr -d "\n" | tee $(results.changelog-file-path.path)
 
         echo "Starting changelog generation script..."
         git config --global --add safe.directory /workspace/source
