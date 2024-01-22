@@ -9,13 +9,12 @@ trap 'echo "An error occurred at line $LINENO. Exiting."' ERR
 # Path to the Git repository (current directory)
 REPO_DIR="."
 CHANGELOG_FILE="$REPO_DIR/CHANGELOG.md"
-GITHUB_REPO_URL=$(git remote get-url origin | sed 's/\.git$//') # get repository url from git remote
+GITHUB_REPO_URL="https://github.com/smichard/cities_demo" # Replace with your repository URL
 
 echo "Starting changelog generation script..."
-echo "Repository:"
-echo $GITHUB_REPO_URL
+
 # Create or clear the changelog file
-> $CHANGELOG_FILE
+echo -n > $CHANGELOG_FILE
 
 # Add the introductory text to the changelog
 echo "# Changelog" >> $CHANGELOG_FILE
@@ -63,7 +62,7 @@ for TAG in $TAGS; do
     echo "" >> $CHANGELOG_FILE
 
     # Collect all commits for this tag range
-    ALL_COMMITS=$(git log $TAG..$PREV_TAG --oneline --always)
+    ALL_COMMITS=$(git log $TAG..$PREV_TAG --oneline)
 
     # Process each category
     for KEY in $CATEGORIES; do
