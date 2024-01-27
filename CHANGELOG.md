@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html) and to [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
 
-## Unreleased changes
+## 0.1.11 (2024-01-27)
 
 ### Feature
 - :sparkles: GitHub Action added [`b3abb61`](https://github.com/smichard/tekton_base_image/commit/b3abb61)
@@ -23,10 +23,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - :robot: merge pull request #8 from smichard/renovate/smichard-conventional_changelog-1.x [`0108036`](https://github.com/smichard/tekton_base_image/commit/0108036)
 
 ### Documentation
+- :robot: changelog file generated [`4547353`](https://github.com/smichard/tekton_base_image/commit/4547353)
 - :robot: changelog file generated [`dd91d92`](https://github.com/smichard/tekton_base_image/commit/dd91d92)
 - :art: badges added to readme [`e3c9b4c`](https://github.com/smichard/tekton_base_image/commit/e3c9b4c)
 
 ### Chore
+- update alpine docker tag to v3.19.1 [`4934fac`](https://github.com/smichard/tekton_base_image/commit/4934fac)
 - update smichard/conventional_changelog action to v2 [`39ac23e`](https://github.com/smichard/tekton_base_image/commit/39ac23e)
 - update smichard/conventional_changelog action to v1 [`5c76841`](https://github.com/smichard/tekton_base_image/commit/5c76841)
 
