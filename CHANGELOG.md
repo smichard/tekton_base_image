@@ -4,6 +4,27 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html) and to [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
 
+## 0.1.14 (2024-05-22)
+
+### Documentation
+- :robot: changelog file generated [`b408fe3`](https://github.com/smichard/tekton_base_image/commit/b408fe3)
+
+### Chore
+- update alpine docker tag to v3.20.0 [`5d1b743`](https://github.com/smichard/tekton_base_image/commit/5d1b743)
+- update quay.io/michard/devspaces_base_image docker tag to v0.1.9 [`14bca0f`](https://github.com/smichard/tekton_base_image/commit/14bca0f)
+- update smichard/conventional_changelog action to v2.0.4 [`0be6704`](https://github.com/smichard/tekton_base_image/commit/0be6704)
+- update quay.io/michard/tekton_base_image docker tag to v0.1.13 [`dc2c8ea`](https://github.com/smichard/tekton_base_image/commit/dc2c8ea)
+
+### Other
+- Merge pull request #16 from smichard/renovate/quay.io-michard-devspaces_base_image-0.x [`6d45d30`](https://github.com/smichard/tekton_base_image/commit/6d45d30)
+- Merge pull request #15 from smichard/renovate/smichard-conventional_changelog-2.x [`bf757f2`](https://github.com/smichard/tekton_base_image/commit/bf757f2)
+- Merge pull request #14 from smichard/renovate/quay.io-michard-tekton_base_image-0.x [`4d79759`](https://github.com/smichard/tekton_base_image/commit/4d79759)
+
+## 0.1.13 (2024-01-27)
+
+### Chore
+- update smichard/conventional_changelog action to v2.0.3 [`9be9f13`](https://github.com/smichard/tekton_base_image/commit/9be9f13)
+
 ## 0.1.12 (2024-01-27)
 
 ### Continuous Integration
