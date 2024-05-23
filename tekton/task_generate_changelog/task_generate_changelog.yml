@@ -24,7 +24,7 @@ spec:
     default: "CHANGELOG.md"
   steps:
     - name: generate-changelog
-      image: quay.io/michard/tekton_base_image:0.1.13
+      image: quay.io/michard/tekton_base_image:0.1.14
       script: |
         #!/bin/sh
         # Exit on error
