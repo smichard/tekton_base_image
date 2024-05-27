@@ -4,6 +4,30 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html) and to [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
 
+## 0.1.15 (2024-05-27)
+
+### Documentation
+- :robot: changelog file generated [`b4e742b`](https://github.com/smichard/tekton_base_image/commit/b4e742b)
+
+### Test
+- :rocket: testing github action [`12339ae`](https://github.com/smichard/tekton_base_image/commit/12339ae)
+
+### Chore
+- update anothrnick/github-tag-action action to v1.69.0 [`9b42c67`](https://github.com/smichard/tekton_base_image/commit/9b42c67)
+- update smichard/conventional_changelog action to v2.0.5 [`58f01bd`](https://github.com/smichard/tekton_base_image/commit/58f01bd)
+- update quay.io/michard/tekton_base_image docker tag to v0.1.14 [`ae84db2`](https://github.com/smichard/tekton_base_image/commit/ae84db2)
+- update quay.io/michard/devspaces_base_image docker tag to v0.1.20 [`3fd644b`](https://github.com/smichard/tekton_base_image/commit/3fd644b)
+
+### Refactor
+- :rocket: testing base container [`1225433`](https://github.com/smichard/tekton_base_image/commit/1225433)
+
+### Other
+- Merge pull request #17 from smichard/renovate/quay.io-michard-devspaces_base_image-0.x [`a5964ff`](https://github.com/smichard/tekton_base_image/commit/a5964ff)
+- Merge pull request #18 from smichard/renovate/anothrnick-github-tag-action-1.x [`fcebd92`](https://github.com/smichard/tekton_base_image/commit/fcebd92)
+- Merge pull request #19 from smichard/renovate/alpine-3.x [`704791d`](https://github.com/smichard/tekton_base_image/commit/704791d)
+- Merge pull request #20 from smichard/renovate/quay.io-michard-tekton_base_image-0.x [`b89310f`](https://github.com/smichard/tekton_base_image/commit/b89310f)
+- Merge pull request #21 from smichard/renovate/smichard-conventional_changelog-2.x [`185c190`](https://github.com/smichard/tekton_base_image/commit/185c190)
+
 ## 0.1.14 (2024-05-22)
 
 ### Documentation
