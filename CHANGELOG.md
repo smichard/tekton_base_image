@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html) and to [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
 
+## 0.1.16 (2024-05-27)
+
+### Documentation
+- :robot: changelog file generated [`9afd467`](https://github.com/smichard/tekton_base_image/commit/9afd467)
+
+### Refactor
+- :rocket: testing base image [`f66fba1`](https://github.com/smichard/tekton_base_image/commit/f66fba1)
+
+### Other
+- Merge branch 'main' of https://github.com/smichard/tekton_base_image [`2cfd530`](https://github.com/smichard/tekton_base_image/commit/2cfd530)
+
 ## 0.1.15 (2024-05-27)
 
 ### Documentation
