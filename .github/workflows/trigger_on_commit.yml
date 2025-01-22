@@ -5,6 +5,8 @@ on:
       - main
     paths-ignore:
       - 'CHANGELOG.md'
+    paths:
+      - 'Containerfile'
 
 concurrency:
   group: ${{ github.workflow }}
