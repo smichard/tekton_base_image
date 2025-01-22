@@ -6,26 +6,7 @@ concurrency:
   group: ${{ github.workflow }}
   cancel-in-progress: false
 jobs:
-  bump_tag:
-    runs-on: ubuntu-24.04
-    permissions:
-      contents: write
-    steps:
-    - uses: actions/checkout@v4
-      with:
-        fetch-depth: '0'
-
-    - name: Bump version and push tag
-      # GitHub Action: https://github.com/marketplace/actions/github-tag-bump
-      uses: anothrNick/github-tag-action@1.71.0
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        DEFAULT_BUMP: patch
-        DEFAULT_BRANCH: main
-        WITH_V: false
-
   changelog:
-    needs: bump_tag
     runs-on: ubuntu-latest
     name: Generate and Commit Changelog
 
@@ -48,6 +29,25 @@ jobs:
         git add CHANGELOG.md
         git commit -m "docs: :robot: changelog file generated" || echo "No changes to commit"
         git push
+
+  bump_tag:
+    needs: changelog
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: '0'
+
+    - name: Bump version and push tag
+      # GitHub Action: https://github.com/marketplace/actions/github-tag-bump
+      uses: anothrNick/github-tag-action@1.71.0
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        DEFAULT_BUMP: patch
+        DEFAULT_BRANCH: main
+        WITH_V: false
           
   notification:
     needs: changelog
