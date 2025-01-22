@@ -3,8 +3,6 @@ on:
   push:
     branches:
       - main
-    paths-ignore:
-      - 'CHANGELOG.md'
     paths:
       - 'Containerfile'
 
