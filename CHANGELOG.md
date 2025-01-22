@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html) and to [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
 
+## 0.1.24 (2025-01-22)
+
+### Documentation
+- :robot: changelog file generated [`67414e6`](https://github.com/smichard/tekton_base_image/commit/67414e6)
+
+### Build
+- :ambulance: order of notification step adjusted [`0623292`](https://github.com/smichard/tekton_base_image/commit/0623292)
+
 ## 0.1.23 (2025-01-22)
 
 ### Documentation
