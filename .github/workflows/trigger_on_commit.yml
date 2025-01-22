@@ -1,6 +1,10 @@
 name: on-commit
 on:
   push:
+    branches:
+      - main
+    paths-ignore:
+      - 'CHANGELOG.md'
 
 concurrency:
   group: ${{ github.workflow }}
@@ -8,6 +12,8 @@ concurrency:
 jobs:
   changelog:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     name: Generate and Commit Changelog
 
     steps:
