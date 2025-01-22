@@ -10,7 +10,26 @@ concurrency:
   group: ${{ github.workflow }}
   cancel-in-progress: false
 jobs:
+  bump_tag:
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: '0'
+
+    - name: Bump version and push tag
+      # GitHub Action: https://github.com/marketplace/actions/github-tag-bump
+      uses: anothrNick/github-tag-action@1.71.0
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        DEFAULT_BUMP: patch
+        DEFAULT_BRANCH: main
+        WITH_V: false
+ 
   changelog:
+    needs: bump_tag
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -36,25 +55,6 @@ jobs:
         git commit -m "docs: :robot: changelog file generated" || echo "No changes to commit"
         git push
 
-  bump_tag:
-    needs: changelog
-    runs-on: ubuntu-24.04
-    permissions:
-      contents: write
-    steps:
-    - uses: actions/checkout@v4
-      with:
-        fetch-depth: '0'
-
-    - name: Bump version and push tag
-      # GitHub Action: https://github.com/marketplace/actions/github-tag-bump
-      uses: anothrNick/github-tag-action@1.71.0
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        DEFAULT_BUMP: patch
-        DEFAULT_BRANCH: main
-        WITH_V: false
-          
   notification:
     needs: bump_tag
     runs-on: ubuntu-latest
@@ -66,10 +66,10 @@ jobs:
           access_token: ${{ secrets.MATRIX_ACCESS_TOKEN }}
           server: ${{ secrets.MATRIX_SERVER }}
           message: |
-            "${{ github.repository }}": changes to source directory detected<br />
-            **Tekton pipeline triggered**<br />
+            "${{ github.repository }}":<br />
+            **new updates pushed to the repository — triggering quay build**<br />
             commit message: **${{ github.event.head_commit.message }}** <br />
             contributor: **${{ github.actor }}** <br />
             commit sha: **${{ github.sha }}** <br />
             commit history: **[link](https://github.com/${{ github.repository }}/commits/main)** <br />
-            Pipeline: **[link](https://console-openshift-console.apps.ocp.michard.cc/pipelines/ns/build-environment)** <br />
+            image registry: **[Quay.io](https://quay.io/repository/michard/tekton_base_image?tab=tags)** <br />
