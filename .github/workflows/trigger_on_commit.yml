@@ -7,7 +7,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   bump_tag:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     permissions:
       contents: write
     steps:
@@ -17,7 +17,7 @@ jobs:
 
     - name: Bump version and push tag
       # GitHub Action: https://github.com/marketplace/actions/github-tag-bump
-      uses: anothrNick/github-tag-action@1.69.0
+      uses: anothrNick/github-tag-action@1.71.0
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         DEFAULT_BUMP: patch
@@ -34,7 +34,7 @@ jobs:
       uses: actions/checkout@v4
 
     - name: Generate Changelog
-      uses: smichard/conventional_changelog@2.0.5
+      uses: smichard/conventional_changelog@2.0.6
       with:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
