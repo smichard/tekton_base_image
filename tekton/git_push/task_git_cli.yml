@@ -85,7 +85,7 @@ spec:
 
   steps:
     - name: git
-      image: quay.io/michard/tekton_base_image:0.1.21
+      image: quay.io/michard/tekton_base_image:0.1.30
       workingDir: $(workspaces.source.path)
       env:
       - name: HOME
